@@ -10,7 +10,7 @@
 </head>
 <body>
 <i>Fill out the form. Asterist (*) means required.</i>
-<form th:action="@{/processForm}" th:object="customer" method="POST">
+<form th:action="@{/processForm}" th:object="${customer}" method="POST">
   First name: <input type="text" th:field="${customer.firstName}"/>
   <br><br>
   Last name (*): <input type="text" th:field="${customer.lastName}"/>
