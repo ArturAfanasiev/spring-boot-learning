@@ -1,9 +1,6 @@
 package com.luv2code.spingdemo.mvc;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class Customer {
 
@@ -16,6 +13,12 @@ public class Customer {
     @Min(value=0, message="must be greater than or equal to zero")
     @Max(value=10, message="must be less than or equal to 10")
     private int freePasses;
+
+    @Pattern(regexp = "^[a-zA-z0-9]{5}", message = "only 5 chars/digits")
+    private String postalCode;
+
+
+
 
     public int getFreePasses() {
         return freePasses;
@@ -33,6 +36,7 @@ public class Customer {
         this.firstName = firstName;
     }
 
+
     public String getLastName() {
         return lastName;
     }
@@ -40,4 +44,11 @@ public class Customer {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+    public String getPostalCode() {
+        return postalCode;
+    }
+
 }
